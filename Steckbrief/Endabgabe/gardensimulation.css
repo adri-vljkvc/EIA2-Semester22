@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(82, 203, 82);
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+
+h2 {
+    margin-top: 50px;
+}
+
+fieldset {
+
+    height: 50px;
+    width: 250px;
+    border-style: solid;
+    border-color: black;
+    font-size: medium;
+    margin-top: 20px;
+}
+
+#startButton {
+    width: 250px;
+    height: 50px;
+    background-color: #705E4E;
+    color: white;
+    font-size: medium;
+}
+
+button {
+    margin: 10px;
+}
+
+#markt {
+    margin-bottom: 50px;
+    border-style: solid;
+    width: 1000px;
+   
+   
+}
+
+#Inventory {
+    margin-bottom: 50px;
+    border-style: solid;
+    width: 1000px;
+    
+    
+}
+
+

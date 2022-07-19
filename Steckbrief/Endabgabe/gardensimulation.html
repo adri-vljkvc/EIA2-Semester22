@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden-Simulation</title>
+
+    <script src="classes/Bug/Bug.js"></script>
+    <script src="classes/Plant/Plant.js"></script>
+    <script src="classes/Field/Field.js"></script>
+    <script src="classes/Player/Player.js"></script>
+    <script src="classes/Karotte/Karotte.js"></script>
+    <script src="classes/Melone/Melone.js"></script>
+    <script src="classes/Radieschen/Radish.js"></script>
+    <script src="classes/Salat/Salat.js"></script>
+    <script src="classes/Sellerie/Sellerie.js"></script>
+    <script src="classes/Load/load.js"></script>
+    <script src="gardensimulation.js"></script>
+    <link rel="stylesheet" href="gardensimulation.css">
+</head>
+
+            <!--    
+                    Name: Adrijana Veljkovic
+                    Matrikelnummer:269366
+                    Stand: 19.07.22  
+            -->
+<header>
+    <h1>GardenSimulation</h1>
+</header>
+
+<!-- Startseite zum Ausfüllen vom Kapital und Preisschwwankungen und Startbutton -->
+<body>
+    <form id="settings">
+        <h2>Settings for your Game</h2>
+        <fieldset id="capital">
+            <label for="capital"><b>Capital</b></label>
+            <input type="number" name="capital" min="100" max="1000" step="10" value="100"> <br>
+        </fieldset>
+        <fieldset id="schwankung">
+            <label for="schwankung"><b>Price-Variation</b></label>
+            <input type="number" name="schwankung" min="5" max="20" step="1" value="5"> <br>
+        </fieldset>
+        <button type="button" id="startButton">Start Game</button>
+    </form>
+
+<!-- Spielfeld mit Feld und Shop -->
+
+    <!-- Feld -->
+    <div id="gameField">
+        <canvas></canvas>
+        <h3>Inventory:</h3>
+        <div id="Inventory">
+        <button id="s1" value="seed1">Carrot <span id="karotteMenge"></span></button>
+        <button id="s2" value="seed2">Melon <span id="meloneMenge"></span></button>
+        <button id="s3" value="seed3">Radish <span id="radieschenMenge"></span></button>
+        <button id="s4" value="seed4">Salad <span id="salatMenge"></span></button>
+        <button id="s5" value="seed5">Cellery <span id="sellerieMenge"></span></button>
+        <button id="h">Harvest</button>
+        <button id="w">Water</button>
+        <button id="f">Fertilize <span id="FertilizeMenge"></span></button></button>
+        <button id="p">Pesticide <span id="pesticideMenge"></span></button>
+        <span id="money">Money: 0 €</span>
+        </div> 
+
+        <!-- Shop -->
+        <h3>Market</h3>
+        <div id="markt">
+            <button id="buyKarotten" value="buy1">buy Carrot <span id="karottePrice"></span></button> 
+            <button id="buyMelone" value="buy2"> buy Melon <span id="melonePrice"></span></button> 
+            <button id="buyRadieschen" value="buy3"> buy Radish <span id="radischenPrice"></span></button>
+            <button id="buySalat" value="buy4">buy Salad <span id="salatPrice"></span></button>
+            <button id="buySellerie" value="buy5">buy Cellery <span id="selleriePrice"></span></button>
+            <button id="buyFertilize">Fertilize <span id="FertilizePrice"></span></button>
+            <button id="buyPesticide">Pesticide<span id="pesticidePrice"></span></button>
+        </div> 
+    </div>    
+   
+    <!-- Bilder -->
+    <div id="assets">
+        <img id="Pesti" src="assets/Bug.png" alt="Pesti">
+
+        <img id="WasserEins" src="assets/Gemüse_Tropfen1.png" alt="WasserEins">
+        <img id="WasserZwei" src="assets/Gemüse_Tropfen2.png" alt="WasserZwei">
+        <img id="WasserDrei" src="assets/Gemüse_Tropfen3.png" alt="WasserDrei">
+        
+        <img id="ferti1" src="assets/Gemüse_duenger1.png" alt="ferti1">
+        <img id="ferti2" src="assets/Gemüse_duenger2.png" alt="ferti2">
+        <img id="ferti3" src="assets/Gemüse_duenger3.png" alt="ferti3">
+
+        <img id="Karotte_groß" src="assets/Karotte3.png" alt="Karotte_groß">
+        <img id="Karotte_mittel" src="assets/Karotte2.png" alt="Karotte_mittel">
+        <img id="Karotte_klein" src="assets/Karotte1.png" alt="Karotte_klein">
+
+        <img id="Melone_groß" src="assets/melone3.png" alt="Melone_groß">
+        <img id="Melone_mittel" src="assets/melone2.png" alt="Melone_mittel">
+        <img id="Melone_klein" src="assets/melone1.png" alt="Melone_klein">
+
+        <img id="Radieschen_groß" src="assets/raidhs3.png" alt="Radieschen_groß">
+        <img id="Radieschen_mittel" src="assets/radish2.png" alt="Radieschen_mittel">
+        <img id="Radieschen_klein" src="assets/radish1.png" alt="Radieschen_klein">
+        
+        <img id="Salat_groß" src="assets/salad3.png" alt="Salat_groß">
+        <img id="Salat_mittel" src="assets/salad2.png" alt="Salat_mittel">
+        <img id="Salat_klein" src="assets/salad1.png" alt="Salat_klein">
+
+        <img id="Sellerie_groß" src="assets/cellery3.png" alt="Sellerie_groß">
+        <img id="Sellerie_mittel" src="assets/cellery2.png" alt="Sellerie_mittel">
+        <img id="Sellerie_klein" src="assets/cellery1.png" alt="Sellerie_klein">
+
+        <img id="Empty" src="assets/Gemüse_Empty.png" alt="Empty">
+    </div>
+</body>
+</html>
